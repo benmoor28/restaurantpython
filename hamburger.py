@@ -45,6 +45,7 @@ def resource_allo():
         y += batch_numbers[i]
         if y > 12:
             cooker.append(batch)
+            batch = []
             break
         else:
             batch.append("c"+i)
