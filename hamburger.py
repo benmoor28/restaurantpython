@@ -1,6 +1,4 @@
-import time
-
-x = 
+from array import array
 
 def enque(a, b, c, d):
     try:
@@ -10,8 +8,7 @@ def enque(a, b, c, d):
         int(d)
     except:
         return "\nAn error occured, a number was not entered"
-    orders.update({ordernum: [a,b,c,d]})
-    ordernum += 1
+    orders.append[[a,b,c,d]]
     return i + " " + "order added successfully"
 
 def deque():
@@ -27,9 +24,37 @@ def view_que():
             orderlist += " " + str(i) + ") " + orders[i] + " "
         return orderlist
 
-orders = {}
+def resource_allo():
+    r = {}
+    r1 = {}
+    r2 = {}
+    r3 = {}
+
+    for i in range(len(orders)):
+        r.update({"c" + i: orders[i][0]})
+    
+    batch = []
+
+    batch_numbers = list(r)
+
+    y = 0
+
+    # review batch number thing
+    
+    for i in range(len(batch_numbers)):
+        y += batch_numbers[i]
+        if y > 12:
+            cooker.append(batch)
+            break
+        else:
+            batch.append("c"+i)
+        
+
+orders = []
 orderlist = ""
-ordernum = 0
+cooker = []
+
+
 
 while True:
     try:
